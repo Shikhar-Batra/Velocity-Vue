@@ -11,6 +11,7 @@
                             </div>
                             <div class="box-container">
                                 <div class="row">
+
                                     <div class="col-md-4" v-for="DepartmentValue in uniqueDepartments"
                                          :key="DepartmentValue.id">
 
@@ -30,6 +31,24 @@
 
                                                         </div>
                                                         <div class="box-sub-title">{{DepartmentValue.jobCount}} Jobs</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4" v-if="!uniqueDepartments.some(x=> x.department === 'G&A')">
+                                        <div class="box">
+                                            <a :href="'/careers/?location=null&department=G%26A'">
+                                                <div class="box-bg">
+                                                    <div class="v-icon briefcase"></div>
+                                                    <div class="box-details">
+                                                        <div class="box-title">
+                                                            <h2>G&A</h2>
+                                                        </div>
+                                                        <div class="box-sub-title">
+                                                            No Jobs
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </a>
@@ -71,6 +90,7 @@
 
         async mounted() {
 
+
             await this.listDepartmentValues()
             this.uniqueArrDep = [...new Set(this.DepartmentValues.map((data: any) => data.categories.department))]
 
@@ -84,7 +104,7 @@
 
                 this.uniqueDepartments.push({ department:x,jobCount:this.jobCount})
             })
-
+            console.log(this.uniqueDepartments);
         }
 
 

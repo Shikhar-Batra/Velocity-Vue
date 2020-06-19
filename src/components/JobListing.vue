@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!--                        <DropDown @filterJobs="filteredJobs($event)"></DropDown>-->
+                                <DropDown @filterJobs="filteredJobs($event)"></DropDown>
         <div v-if="isLoading">
             <h5 class="loading-txt"> loading please wait......</h5>
         </div>
@@ -124,10 +124,10 @@
         }
 
 
-        // filteredJobs(data: any) {
-        //     this.JobPostings = data
-        //     this.isLoading = false;
-        // }
+        filteredJobs(data: any) {
+            this.JobPostings = data
+            this.isLoading = false;
+        }
 
 
         loadMore() {
@@ -407,7 +407,7 @@
     }
 
     .job-search .box-details .box-title h2 {
-        min-height: 55px;
+        min-height: 65px;
     }
 
     .job-search .box {
